@@ -1,10 +1,5 @@
 # Gist Search App
 
-## Project Description
-This is part of EventMobi Coding Challenge.
-
-Author: Alfeu Lucas Guedes dos Santos
-
 ## Considerations:
 
 I've focused on creating a project structure with React + Redux + Thunk + Component tests + Test coverage that would enable the reuse and implementation of new features with TDD in mind.
