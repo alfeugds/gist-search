@@ -1,29 +1,42 @@
+import getGistsByUser from "./repositories/gistRepository"
+
 const fetchGists = (username) => {
   return async dispatch => {
     dispatch({
-      type: 'FETCH_GISTS_REQUEST'
+      type: 'FETCH_GISTS_REQUEST',
+      isFetching: true
     })
 
-    // TODO: change to fetch
-    const gistList = await new Promise(resolve => {
-      setTimeout(() => {
-        resolve([
-          {
-            name: 'teste1',
-            username: 'alfeugds'
-          },
-          {
-            name: 'teste2',
-            username: 'alfeu'
-          }
-        ].filter(gist => gist.username === username))
-      },2000)
-    })
+    try{
+      const {
+        userFound,
+        data:gistList
+      } = await getGistsByUser(username)
+
+      if(!userFound){
+        throw new Error(`User ${username} not found.`)
+      }
+
+      dispatch({
+        type: 'FETCH_GISTS_SUCCESS',
+        gistList,
+        isFetching: false
+      })
+    }
+    catch(err){
+      dispatch({
+        type: 'FETCH_GISTS_FAILED',
+        gistList: [],
+        isFetching: false,
+        fetchError: err.message
+      })
+    }
 
     dispatch({
-      type: 'FETCH_GISTS_SUCCESS',
-      gistList
+      type: 'FETCHED_FOR_USER',
+      value: username
     })
+
   }
 }
 

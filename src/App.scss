@@ -1,19 +1,15 @@
 .App {
-  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-header{
+  text-align: center;
 }
 
 .app-header, .app-body, .app-nav {

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import fetchGists from "../actions"
 
@@ -6,16 +5,11 @@ function SearchForm() {
 
   const dispatch = useDispatch()
   const username = useSelector(state => state.username)
-
-  useEffect(() => {
-    console.log('username changed', {
-      username
-    })
-  })
+  const isFetching = useSelector(state => state.isFetching)
 
   const handleChange = (event) => {
     dispatch({
-      type: 'SEARCH_USER',
+      type: 'USER_CHANGED',
       value: event.target.value
     })
   }
@@ -28,9 +22,8 @@ function SearchForm() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Search Gists from User
-        <input type="text" name="username" onChange={handleChange}/>
-        {username}
+        <h1>Search Gists from User</h1>
+        <input type="text" placeholder="username" disabled={isFetching} name="username" onChange={handleChange}/>
       </label>
     </form>
   )
