@@ -19,7 +19,9 @@ function SearchForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(fetchGists(username))
+    if(username){
+      dispatch(fetchGists(username))
+    }
   }
 
   return (
