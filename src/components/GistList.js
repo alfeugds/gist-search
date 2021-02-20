@@ -20,7 +20,7 @@ const GistList = () => {
   return (
     <>
       { isFetching &&
-        <p>Loading</p>
+        <p className="search-status">Loading</p>
       }
       {gistListItems.length > 0 &&
         <>
@@ -31,10 +31,10 @@ const GistList = () => {
         </>
       }
       {!fetchError &&fetchedUsername && gistListItems.length === 0 &&
-        <p>No gists for user {fetchedUsername}</p>
+        <p className="search-status">No gists for user {fetchedUsername}</p>
       }
       {fetchError &&
-        <p>{fetchError}</p>
+        <p className="search-status">{fetchError}</p>
       }
     </>
   )

@@ -44,8 +44,4 @@ const fetchGists = (username) => {
   }
 }
 
-const fetchForks = async (forks_url) => {
-
-}
-
 export default fetchGists
