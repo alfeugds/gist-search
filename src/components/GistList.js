@@ -34,10 +34,7 @@ const GistList = () => {
         <p>No gists for user {fetchedUsername}</p>
       }
       {fetchError &&
-        <>
-          <p>Something went wrong.</p>
-          <p>{fetchError}</p>
-        </>
+        <p>{fetchError}</p>
       }
     </>
   )

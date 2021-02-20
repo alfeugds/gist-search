@@ -21,8 +21,9 @@ function SearchForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>Search Gists from User</h1>
       <label>
-        <h1>Search Gists from User</h1>
+        <p>Enter the username</p>
         <input type="text" placeholder="username" disabled={isFetching} name="username" onChange={handleChange}/>
       </label>
     </form>
