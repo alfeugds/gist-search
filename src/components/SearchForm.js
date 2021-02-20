@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux'
 import fetchGists from "../actions"
 
+import './SearchForm.scss'
+
+
 function SearchForm() {
 
   const dispatch = useDispatch()
@@ -20,11 +23,19 @@ function SearchForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="search-form"
+      onSubmit={handleSubmit} >
       <h1>Search Gists from User</h1>
       <label>
         <p>Enter the username</p>
-        <input type="text" placeholder="username" disabled={isFetching} name="username" onChange={handleChange}/>
+        <input
+          className="username"
+          type="text"
+          placeholder="username"
+          disabled={isFetching}
+          name="username"
+          onChange={handleChange}/>
       </label>
     </form>
   )

@@ -5,11 +5,11 @@ import SearchForm from './components/SearchForm';
 function App() {
   return (
 
-    <div className="App">
+    <div className="app">
       <header className="app-header">
         <SearchForm/>
       </header>
-      <section>
+      <section className="content">
         <GistList/>
       </section>
     </div>

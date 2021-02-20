@@ -17,6 +17,10 @@ const fetchGists = (username) => {
         throw new Error(`User ${username} not found.`)
       }
 
+      if(gistList.length > 0){
+        // TODO: fetch forks
+      }
+
       dispatch({
         type: 'FETCH_GISTS_SUCCESS',
         gistList,
@@ -38,6 +42,10 @@ const fetchGists = (username) => {
     })
 
   }
+}
+
+const fetchForks = async (forks_url) => {
+
 }
 
 export default fetchGists
